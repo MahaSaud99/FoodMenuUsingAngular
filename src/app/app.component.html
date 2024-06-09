@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu</title>
+</head>
+<body>
+
+  <div class="container">
+    <div class="row m-5">
+
+    <div class="col text-center">
+      <h1 class="alert alert-danger text-white">
+        Menu
+      </h1>
+    </div>
+
+  <div class="row bg-dark text-white text-center ">
+    <div class="col">
+      Total Price {{total}}
+    </div>
+    <div class="col">
+      Order No. {{qty}}
+    </div>
+  </div>
+
+
+    <div class="row mt-3 mb-3">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchTerm" (input)="search()">
+      </div>
+    </div>
+
+
+  <div class="card d-flex align-items-center justify-contenr-center">
+
+    <div class="card-body">
+
+    <table class="table table-bordered table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">No.</th>
+          <th scope="col">Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">Description</th>
+          <th scope="col">Image</th>
+          <th scope="col">Choose</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of filteredMenu">
+          <td class="align-middle">{{item.id}}</td>
+          <td class="align-middle">{{item.name}}</td>
+          <td class="align-middle">{{item.price}}</td>
+          <td class="align-middle">{{item.description}}</td>
+          <td class="align-middle"><img src={{item.image}} alt="صوره المنتج" width="100"></td>
+          <td class="align-middle"><input type="checkbox" (change)="sum($event , item.price)"></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  </div>
+
+
+
+</div>
+</div>  
+</body>
+</html>
